@@ -1,18 +1,18 @@
 PORTNAME=	stalwart
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.0
+PORTREVISION=	1
 CATEGORIES=	mail
 
 MAINTAINER=	orville@anislet.dev
 COMMENT=	Stalwart Mail Server
 WWW=		https://stalw.art/
 
-LICENSE=		AGPLv3 SELv2
-LICENSE_COMB=		multi
+LICENSE=		AGPLv3
 LICENSE_NAME_SELv2=	Stalwart Enterprise License 2.0
 LICENSE_FILE_AGPLv3=	${WRKSRC}/LICENSES/AGPL-3.0-only.txt
 LICENSE_FILE_SELv2=	${WRKSRC}/LICENSES/LicenseRef-SEL.txt
-LICENSE_PERMS_SELv2=	pkg-mirror auto-accept
+LICENSE_PERMS_SELv2=	none
 
 BROKEN_i386=	rustc-LLVM ERROR: out of memory
 
@@ -55,7 +55,10 @@ S3_DESC=		Enable S3 storage backend
 SQLITE_DESC=		Enable SQLite backend
 
 AZURE_VARS=		CARGO_FEATURES+=azure
-ENTERPRISE_VARS=	CARGO_FEATURES+=enterprise
+ENTERPRISE_USES_OFF=	python:patch,env
+ENTERPRISE_VARS=	CARGO_FEATURES+=enterprise \
+			LICENSE+=SELv2 \
+			LICENSE_COMB=multi
 KEEP_VARS=		CARGO_FEATURES+=keep
 MYSQL_VARS=		CARGO_FEATURES+=mysql
 POSTGRES_VARS=		CARGO_FEATURES+=postgres
@@ -76,6 +79,12 @@ GROUPS=	stalwart
 post-patch:
 	@${MKDIR} ${WRKSRC_crate_librocksdb-sys}/librocksdb-sys/rocksdb
 	@${TOUCH} ${WRKSRC_crate_librocksdb-sys}/librocksdb-sys/rocksdb/AUTHORS
+
+# Strip the code under the Stalwart Enterprise License (whole files and
+# SPDX-tagged snippets) with upstream's own script, so that the resulting
+# binary is AGPLv3 only.
+post-patch-ENTERPRISE-off:
+	@${PYTHON_CMD} ${WRKSRC}/resources/scripts/ossify.py ${WRKSRC}/crates
 
 post-install:
 	@${MKDIR} ${STAGEDIR}${ETCDIR}

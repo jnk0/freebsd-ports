@@ -1,0 +1,23 @@
+[
+{ type: install
+  message: <<EOM
+Bulwark Webmail has been installed to %%WWWDIR%%.
+
+To start it, enable and start the service:
+
+  # sysrc bulwark_enable=YES
+  # service bulwark start
+
+By default it listens on 127.0.0.1:3000 (bulwark_listen, bulwark_port in
+rc.conf). Put a TLS-terminating reverse proxy such as nginx in front of it.
+
+Most settings are made in the setup wizard on first launch. Settings can
+also be given in %%ETCDIR%%/bulwark.env (see
+%%ETCDIR%%/bulwark.env.sample, e.g. JMAP_SERVER_URL). Keep the file
+readable for root and the %%GROUP%% group only, as it may hold secrets.
+
+Data (admin configuration, settings sync, plugin secrets) is kept in
+/var/db/bulwark, the Next.js cache in /var/cache/bulwark.
+EOM
+}
+]

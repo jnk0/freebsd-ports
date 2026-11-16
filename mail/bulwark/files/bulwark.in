@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# PROVIDE: bulwark
+# REQUIRE: LOGIN NETWORKING
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# bulwark_enable (bool):	Set to NO by default.
+#				Set it to YES to enable Bulwark Webmail.
+# bulwark_user (str):		User to run as. Default: %%USER%%
+# bulwark_group (str):		Group to run as. Default: %%GROUP%%
+# bulwark_listen (str):		Address to listen on. Default: 127.0.0.1
+# bulwark_port (int):		Port to listen on. Default: 3000
+# bulwark_config (str):		Environment file read by the server.
+#				Default: %%ETCDIR%%/bulwark.env
+# bulwark_logfile (str):	Log file. Default: /var/log/bulwark/bulwark.log
+# bulwark_node_flags (str):	Extra flags for node. Default: empty
+
+. /etc/rc.subr
+
+name=bulwark
+rcvar=bulwark_enable
+
+load_rc_config $name
+
+: ${bulwark_enable:=NO}
+: ${bulwark_user:=%%USER%%}
+: ${bulwark_group:=%%GROUP%%}
+: ${bulwark_listen:=127.0.0.1}
+: ${bulwark_port:=3000}
+: ${bulwark_config:=%%ETCDIR%%/bulwark.env}
+: ${bulwark_logfile:=/var/log/bulwark/bulwark.log}
+: ${bulwark_node_flags:=}
+
+bulwark_chdir=%%WWWDIR%%
+bulwark_env="${bulwark_env} NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 \
+HOSTNAME=${bulwark_listen} PORT=${bulwark_port}"
+
+pidfile=/var/run/bulwark/bulwark.pid
+procname=%%LOCALBASE%%/bin/node
+command=/usr/sbin/daemon
+command_args="-f -o ${bulwark_logfile} -p ${pidfile} -t ${name} \
+${procname} --env-file-if-exists=${bulwark_config} ${bulwark_node_flags} server.js"
+
+start_precmd=bulwark_prestart
+
+bulwark_prestart()
+{
+	install -d -o ${bulwark_user} -g ${bulwark_group} -m 755 /var/run/bulwark
+	install -d -o ${bulwark_user} -g ${bulwark_group} -m 750 \
+		$(dirname ${bulwark_logfile})
+}
+
+run_rc_command "$1"

@@ -1,0 +1,16 @@
+/*
+ * FreeBSD port: stand-ins for the variable classes of next/font/google.
+ * The @font-face rules come from the @fontsource-variable packages that
+ * app/(main)/layout.tsx imports.
+ */
+.freebsd-font-geist-sans {
+  --font-geist-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+.freebsd-font-geist-mono {
+  --font-geist-mono: "Geist Mono Variable", ui-monospace, monospace;
+}
+
+.freebsd-font-hanken {
+  --font-hanken: "Hanken Grotesk Variable";
+}

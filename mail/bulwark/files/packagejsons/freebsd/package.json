@@ -1,0 +1,12 @@
+{
+  "name": "bulwark-freebsd-build-extras",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build-time extras for the FreeBSD port: SWC WebAssembly bindings (Next.js ships no native SWC for FreeBSD) and self-hosted fonts (next/font/google needs network at build time)",
+  "dependencies": {
+    "@fontsource-variable/geist": "5.3.0",
+    "@fontsource-variable/geist-mono": "5.3.0",
+    "@fontsource-variable/hanken-grotesk": "5.3.0",
+    "@next/swc-wasm-nodejs": "16.4.3"
+  }
+}

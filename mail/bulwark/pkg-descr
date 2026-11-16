@@ -1,0 +1,11 @@
+Bulwark Webmail is a self-hosted webmail client for mail, calendar,
+contacts and files, built on JMAP. It is developed for the Stalwart
+Mail Server but works with other JMAP servers.
+
+Features include threaded mail with search and multiple accounts,
+calendars and address books, file storage, themes, plugins, an admin
+console with a setup wizard, settings sync across devices, OAuth/OpenID
+Connect sign-in and web push notifications.
+
+This package installs the full edition, a Next.js application run by
+Node.js. The static edition is available as mail/bulwark-lite.

@@ -35,6 +35,7 @@
     SUBDIR += bsfilter
     SUBDIR += bsmtp
     SUBDIR += bulk_mailer
+    SUBDIR += bulwark-lite
     SUBDIR += c-sig
     SUBDIR += claws-mail
     SUBDIR += claws-mail-acpi_notifier

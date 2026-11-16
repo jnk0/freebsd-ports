@@ -1,0 +1,21 @@
+[
+{ type: install
+  message: <<EOM
+Bulwark Lite has been installed to %%WWWDIR%%.
+
+1. Set jmapServerUrl in %%WWWDIR%%/config.json to your
+   JMAP server, e.g. https://mail.example.com.
+
+2. Serve %%WWWDIR%% at the root of a (virtual) host. Deep links
+   need a rewrite to the shell of each section; with the EXAMPLES option
+   there are configurations for nginx and Caddy in
+   %%EXAMPLESDIR%%.
+
+3. Allow the browser to talk to the JMAP server (CORS). In Stalwart,
+   enable "Permissive CORS policy" under Settings > Network > HTTP >
+   Security.
+
+See %%DOCSDIR%%/LITE-README.md (DOCS option) for details.
+EOM
+}
+]

@@ -60,6 +60,18 @@ do-build:
 		CXXFLAGS="${CXXFLAGS} -I${LOCALBASE}/include" \
 		node ${LOCALBASE}/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js \
 		rebuild --nodedir=${LOCALBASE}
+	cd ${WRKSRC}/lib/vscode/node_modules/@vscode/sqlite3 && \
+		${SETENV} ${MAKE_ENV} PYTHON=${PYTHON_CMD} \
+		CXXFLAGS="${CXXFLAGS} -I${LOCALBASE}/include" \
+		node ${LOCALBASE}/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js \
+		rebuild --nodedir=${LOCALBASE}
+	${RM} -r ${WRKSRC}/lib/vscode/node_modules/keytar/node_modules/node-addon-api
+	${CP} -R ${WRKSRC}/lib/vscode/node_modules/@vscode/sqlite3/node_modules/node-addon-api \
+		${WRKSRC}/lib/vscode/node_modules/keytar/node_modules/node-addon-api
+	cd ${WRKSRC}/lib/vscode/node_modules/keytar && \
+		${SETENV} ${MAKE_ENV} PYTHON=${PYTHON_CMD} \
+		node ${LOCALBASE}/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js \
+		rebuild --nodedir=${LOCALBASE} --napi_build_version=3
 	cd ${WRKSRC}/lib/vscode && \
 		VSCODE_NODE_VERSION=$$(${AWK} \
 			'/node-v[0-9.]+-linux-x64\.tar\.gz/ { \
@@ -78,11 +90,14 @@ do-build:
 # names are kept as-is (Copilot resolves them by that label); only the
 # binary contents are swapped so no Linux ELF binaries ship in the package.
 .for _rg in extensions/copilot/node_modules/@github/copilot/sdk/ripgrep/bin/linux-x64/rg \
-		node_modules/@github/copilot-sdk-linux-x64/ripgrep/bin/linux-x64/rg \
-		node_modules/@vscode/ripgrep-universal/bin/linux-x64/rg
+		node_modules/@github/copilot-sdk-linux-x64/ripgrep/bin/linux-x64/rg
 	${CP} ${LOCALBASE}/bin/rg \
 		${WRKSRC}/lib/vscode-reh-web-linux-x64/${_rg}
 .endfor
+	${MKDIR} ${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/@vscode/ripgrep-universal/bin/freebsd-x64
+	${CP} ${LOCALBASE}/bin/rg \
+		${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/@vscode/ripgrep-universal/bin/freebsd-x64/rg
+	${RM} ${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/@vscode/ripgrep-universal/bin/linux-x64/rg
 .for _tgrep in extensions/copilot/node_modules/@github/copilot/tgrep/bin/linux-x64/tgrep \
 		extensions/copilot/node_modules/@github/copilot/sdk/tgrep/bin/linux-x64/tgrep \
 		node_modules/@github/copilot-sdk-linux-x64/tgrep/bin/linux-x64/tgrep
@@ -104,6 +119,12 @@ do-build:
 	${MKDIR} ${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/@vscode/native-watchdog/build/Release
 	${CP} ${WRKSRC}/lib/vscode/node_modules/@vscode/native-watchdog/build/Release/watchdog.node \
 		${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/@vscode/native-watchdog/build/Release/watchdog.node
+	${MKDIR} ${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/@vscode/sqlite3/build/Release
+	${CP} ${WRKSRC}/lib/vscode/node_modules/@vscode/sqlite3/build/Release/vscode-sqlite3.node \
+		${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/@vscode/sqlite3/build/Release/vscode-sqlite3.node
+	${MKDIR} ${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/keytar/build/Release
+	${CP} ${WRKSRC}/lib/vscode/node_modules/keytar/build/Release/keytar.node \
+		${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/keytar/build/Release/keytar.node
 	${RM} ${WRKSRC}/lib/vscode-reh-web-linux-x64/node
 
 make-node-modules-archive:

@@ -78,6 +78,6 @@ post-install:
 	@${ECHO_CMD} "@dir ${ETCDIR_REL}/stalwart" >> ${TMPPLIST}
 	@${ECHO_CMD} "@dir ${_STALWART_BUNDLE:H}" >> ${TMPPLIST}
 	@${ECHO_CMD} "@postexec %D/sbin/bulwark-lite-stalwart" >> ${TMPPLIST}
-	@${ECHO_CMD} "@postunexec rm -f ${_STALWART_BUNDLE}" >> ${TMPPLIST}
+	@${ECHO_CMD} "@postunexec ${RM} ${_STALWART_BUNDLE}" >> ${TMPPLIST}
 
 .include <bsd.port.mk>

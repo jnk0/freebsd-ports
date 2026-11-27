@@ -1,4 +1,4 @@
---- build/gulpfile.extensions.ts.orig	2026-10-27 20:18:03 UTC
+--- build/gulpfile.extensions.ts.orig	2026-11-24 10:26:34 UTC
 +++ build/gulpfile.extensions.ts
 @@ -263,7 +263,7 @@ export const compileNonNativeExtensionsBuildTask = tas
   * @note this does not clean the directory ahead of it. See {@link cleanExtensionsBuildTask} for that.

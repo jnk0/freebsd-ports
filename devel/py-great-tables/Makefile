@@ -1,5 +1,6 @@
 PORTNAME=	great-tables
-DISTVERSION=	1.0.0
+DISTVERSION=	1.1.0
+PORTREVISION=	1
 CATEGORIES=	devel python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -15,7 +16,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools>=45:devel/py-setuptools@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}setuptools-scm>=6.2:devel/py-setuptools-scm@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}wheel>=0:devel/py-wheel@${PY_FLAVOR}
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}Babel>=2.13.1:devel/py-babel@${PY_FLAVOR} \
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}babel>=2.13.1:devel/py-babel@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}faicons>=0.2.2:devel/py-faicons@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}htmltools>=0.4.1:www/py-htmltools@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}importlib-metadata>0:devel/py-importlib-metadata@${PY_FLAVOR} \
@@ -37,6 +38,7 @@ TEST_WRKDIR=	${WRKSRC}/tests
 
 NO_ARCH=	yes
 
-# tests as of 1.0.0: 2 failed, 2 passed, 2729 deselected, 1 warning in 0.51s (no_pandas tests fail when pandas is installed locally)
+# tests as of 1.1.0 (local pandas/polars installed; polars is broken on this host so most tests error out): 3 failed, 1 passed, 2164 deselected, 11 collection errors in 1.29s
+# with '-m "not no_pandas" -p pytest_cov -p syrupy': 1457 passed, 629 failed (polars), 88 errors in 75.92s
 
 .include <bsd.port.mk>

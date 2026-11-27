@@ -1,12 +1,12 @@
 PORTNAME=	yarn
 DISTVERSIONPREFIX=	v
 PORTVERSION=	1.22.19
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	www
 MASTER_SITES=	https://yarnpkg.com/downloads/${PORTVERSION}/
 PKGNAMESUFFIX=	${NODEJS_SUFFIX}
 
-MAINTAINER=	pizzamig@FreeBSD.org
+MAINTAINER=	bofh@FreeBSD.org
 COMMENT=	Package manager for node, alternative to npm
 WWW=		https://classic.yarnpkg.com/
 

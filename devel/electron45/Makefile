@@ -4,7 +4,7 @@ DISTVERSION=	${ELECTRON_VER}
 PULSEMV=	16
 PULSEV=		${PULSEMV}.1
 CATEGORIES=	devel
-MASTER_SITES=	https://github.com/tagattie/FreeBSD-Electron/releases/download/v45.3.3/:chromium \
+MASTER_SITES=	https://github.com/tagattie/FreeBSD-Electron/releases/download/v45.5.0/:chromium \
 		https://freedesktop.org/software/pulseaudio/releases/:pulseaudio
 PKGNAMESUFFIX=	${ELECTRON_VER_MAJOR}
 DISTFILES=	chromium-${CHROMIUM_VER}${EXTRACT_SUFX}.0:chromium \
@@ -243,7 +243,7 @@ SNDIO_VARS=		GN_ARGS+=use_sndio=true
 SNDIO_VARS_OFF=		GN_ARGS+=use_sndio=false
 
 # See ${WRKSRC}/electron/DEPS for CHROMIUM_VER
-CHROMIUM_VER=			156.0.8078.100
+CHROMIUM_VER=			156.0.8078.109
 # See ${WRKSRC}/electron/DEPS for NODE_VER
 NODE_VER=			24.22.3
 # See ${WRKSRC}/electron/DEPS for NAN_VER
@@ -307,6 +307,18 @@ MAKE_ENV+=	GOCACHE=${WRKDIR}/go-cache
 # Don't create __pycache__ directory when executing python codes
 # This is a workaround to avoid filesystem violations during poudriere build
 MAKE_ENV+=	PYTHONDONTWRITEBYTECODE=1
+
+# v8
+# electron release tarball does not contain v8/..electron-patch-fingerprint.json
+# generate fingerprint locally from electron and FreeBSD ports v8 patches
+V8_FINGERPRINT_CMD=	\
+		${CAT} ${WRKSRC}/electron/patches/v8/.patches \
+			${WRKSRC}/electron/patches/v8/*.patch \
+			${PATCHDIR}/patch-v8_* 2>/dev/null | \
+		${SHA256} | ${CUT} -c 1-16
+V8_EMBEDDER_STRING=	-electron.${V8_FINGERPRINT_CMD:sh}
+CONFIGURE_ENV+=	ELECTRON_V8_EMBEDDER_STRING=${V8_EMBEDDER_STRING}
+MAKE_ENV+=	ELECTRON_V8_EMBEDDER_STRING=${V8_EMBEDDER_STRING}
 
 TEST_ENV+=	${MAKE_ENV} \
 		ELECTRON_OUT_DIR=${BUILDTYPE} \

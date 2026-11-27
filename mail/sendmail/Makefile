@@ -1,6 +1,6 @@
 PORTNAME=	sendmail
 PORTVERSION=	8.18.2
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	mail
 MASTER_SITES=	ftp://ftp.sendmail.org/pub/sendmail/
 DISTNAME=	${PORTNAME}.${PORTVERSION}
@@ -9,10 +9,8 @@ MAINTAINER=	dinoex@FreeBSD.org
 COMMENT=	Reliable, highly configurable mail transfer agent with utilities
 WWW=		https://www.sendmail.org/
 
-LICENSE=	Sendmail
-LICENSE_NAME=	Sendmail License
+LICENSE=	Sendmail-8.23
 LICENSE_FILE=	${WRKSRC}/LICENSE
-LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 CONFLICTS?=	courier-0.* postfix-1.* postfix-2.* smail-3.* zmailer-2.* opensmtpd
 

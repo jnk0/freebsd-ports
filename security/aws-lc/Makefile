@@ -1,5 +1,5 @@
 PORTNAME=	aws-lc
-PORTVERSION=	5.14.0
+PORTVERSION=	5.15.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	security
 
@@ -16,7 +16,10 @@ TEST_DEPENDS=	go${GO_DEFAULT:R}${GO_DEFAULT:E}>=0:lang/go${GO_DEFAULT:R}${GO_DEF
 		libunwind>=0:devel/libunwind \
 		pkgconf>=0:devel/pkgconf
 
-USES=		cmake:testing
+USES=		cmake:testing cpe
+
+CPE_VENDOR=	amazon
+CPE_PRODUCT=	aws_libcrypto
 
 CMAKE_OFF=	BUILD_TESTING \
 		DISABLE_CPU_JITTER_ENTROPY \

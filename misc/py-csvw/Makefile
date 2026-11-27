@@ -1,6 +1,7 @@
 PORTNAME=	csvw
 DISTVERSIONPREFIX=	v
-DISTVERSION=	4.1.1
+DISTVERSION=	4.2.0
+PORTREVISION=	1
 CATEGORIES=	misc python
 #MASTER_SITES=	PYPI # tests are broken there
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -14,7 +15,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	${PY_SETUPTOOLS} \
 		${PYTHON_PKGNAMEPREFIX}wheel>0:devel/py-wheel@${PY_FLAVOR}
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}Babel>0:devel/py-babel@${PY_FLAVOR} \
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}babel>0:devel/py-babel@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}isodate>0:devel/py-isodate@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}jsonschema>0:devel/py-jsonschema@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}language-tags>0:textproc/py-language-tags@${PY_FLAVOR} \
@@ -42,6 +43,6 @@ TEST_WRKSRC=	${WRKSRC}/tests
 TEST_ARGS=	--disable-plugin-autoload \
 		-p pytest_cov -p pytest_mock -p requests_mock
 
-# tests as of 4.1.1: 825 passed, 16 xfailed in 2.59s
+# tests as of 4.2.0: 844 passed, 16 xfailed in 4.73s
 
 .include <bsd.port.mk>

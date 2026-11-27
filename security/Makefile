@@ -464,7 +464,6 @@
     SUBDIR += openssl-pkcs11provider
     SUBDIR += openssl-unsafe
     SUBDIR += openssl30
-    SUBDIR += openssl36
     SUBDIR += openssl40
     SUBDIR += openssl41
     SUBDIR += openvas
@@ -832,7 +831,6 @@
     SUBDIR += pecl-gnupg
     SUBDIR += pecl-krb5
     SUBDIR += pecl-libsodium
-    SUBDIR += pecl-mcrypt
     SUBDIR += pecl-pam
     SUBDIR += pecl-pkcs11
     SUBDIR += pecl-scrypt
@@ -844,6 +842,7 @@
     SUBDIR += pgpdump
     SUBDIR += pgpgpg
     SUBDIR += pgpin
+    SUBDIR += php-mcrypt
     SUBDIR += php82-filter
     SUBDIR += php82-sodium
     SUBDIR += php83-filter
@@ -1177,6 +1176,7 @@
     SUBDIR += rubygem-attr_encrypted3
     SUBDIR += rubygem-auth-sanitizer
     SUBDIR += rubygem-auth-sanitizer-gitlab
+    SUBDIR += rubygem-az-identity
     SUBDIR += rubygem-bcrypt
     SUBDIR += rubygem-bcrypt-ruby
     SUBDIR += rubygem-bcrypt_pbkdf
@@ -1215,6 +1215,7 @@
     SUBDIR += rubygem-googleauth
     SUBDIR += rubygem-googleauth-gitlab
     SUBDIR += rubygem-gpgme
+    SUBDIR += rubygem-gpgme-gitlab
     SUBDIR += rubygem-gpgr
     SUBDIR += rubygem-gssapi
     SUBDIR += rubygem-haiti-hash

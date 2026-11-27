@@ -1,6 +1,6 @@
 PORTNAME=	llvm
 DISTVERSION=	13.0.1
-PORTREVISION=	11
+PORTREVISION=	12
 CATEGORIES=	devel lang
 MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION:S/rc/-rc/}/ \
 		https://${PRE_}releases.llvm.org/${LLVM_RELEASE}/${RCDIR}
@@ -11,6 +11,9 @@ DISTFILES=	llvm-project-${DISTVERSION}.src${EXTRACT_SUFX}
 MAINTAINER=	brooks@FreeBSD.org
 COMMENT=	LLVM and Clang
 WWW=		https://llvm.org/
+
+DEPRECATED=	Sole dependency is deprecated
+EXPIRATION_DATE=	2026-12-25
 
 LICENSE_FILE_BSD3CLAUSE=${LICENSE_DIR}/utils/unittest/googletest/LICENSE.TXT
 .include "${.CURDIR}/../llvm-devel/Makefile.LICENSE"

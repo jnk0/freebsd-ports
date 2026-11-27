@@ -1,12 +1,13 @@
 PORTNAME=	libpg_query
 DISTVERSION=	17-6.1.0
+PORTREVISION=	1
 CATEGORIES=	databases devel
 
 MAINTAINER=	mfechner@FreeBSD.org
 COMMENT=	C library for accessing the PostgreSQL parser outside of the server
 WWW=		https://github.com/lfittl/libpg_query
 
-LICENSE=	BSD3CLAUSE
+LICENSE=	BSD-3-Clause
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BROKEN_i386=	Tests are failing: INVALID result for ALTER SUBSCRIPTION mysub SET PUBLICATION insert_only

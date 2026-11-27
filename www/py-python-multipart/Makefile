@@ -1,5 +1,5 @@
 PORTNAME=	python-multipart
-PORTVERSION=	0.0.33
+PORTVERSION=	0.0.34
 CATEGORIES=	www python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -18,8 +18,10 @@ TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}mock>=0:devel/py-mock@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pytest>=0:devel/py-pytest@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pyyaml>=0:devel/py-pyyaml@${PY_FLAVOR}
 
-USES=		python
+USES=		cpe python
 USE_PYTHON=	autoplist concurrent pep517
+
+CPE_VENDOR=	fastapiexpert
 
 NO_ARCH=	yes
 

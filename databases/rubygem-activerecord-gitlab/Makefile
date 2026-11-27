@@ -1,5 +1,6 @@
 PORTNAME=	activerecord
 PORTVERSION=	${RAILS_VERSION}
+PORTREVISION=	1
 CATEGORIES=	databases rubygems
 MASTER_SITES=	RG
 PKGNAMESUFFIX=	-gitlab
@@ -20,8 +21,6 @@ USES=		cpe gem
 
 CPE_VENDOR=	activerecord_project
 NO_ARCH=	yes
-
-PORTSCOUT=	limit:^7\.2\.
 
 .include "${.CURDIR}/../../www/gitlab/Makefile.common"
 .include <bsd.port.mk>

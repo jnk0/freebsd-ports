@@ -1,5 +1,6 @@
 PORTNAME=	libmicrohttpd
-DISTVERSION=	1.0.10
+DISTVERSION=	1.0.11
+PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	GNU
 
@@ -15,11 +16,16 @@ CPE_VENDOR=	gnu
 USE_LDCONFIG=	yes
 
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--disable-examples \
-		--disable-static
-INSTALL_TARGET=	install-strip
-TEST_TARGET=	check
+
+LDFLAGS+=	-lexecinfo
+
 INFO=		libmicrohttpd libmicrohttpd-tutorial
+
+TEST_TARGET=	check
+INSTALL_TARGET=	install-strip
+
+CONFIGURE_ARGS=		--disable-examples \
+			--disable-static
 
 OPTIONS_DEFINE=		GNUTLS TESTCURL
 OPTIONS_DEFAULT=	GNUTLS

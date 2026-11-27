@@ -1,5 +1,5 @@
 PORTNAME=	opentelemetry-instrumentation-grape
-PORTVERSION=	0.5.1
+PORTVERSION=	0.7.3
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 PKGNAMESUFFIX=	-gitlab
@@ -10,7 +10,7 @@ WWW=		https://opentelemetry.io/ \
 		https://github.com/open-telemetry/opentelemetry-ruby \
 		https://github.com/open-telemetry/opentelemetry-ruby-contrib/tree/main/instrumentation/grape
 
-LICENSE=	APACHE20
+LICENSE=	Apache-2.0
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	rubygem-opentelemetry-instrumentation-rack-gitlab>=0.29<1:devel/rubygem-opentelemetry-instrumentation-rack-gitlab

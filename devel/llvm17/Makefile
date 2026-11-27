@@ -1,6 +1,6 @@
 PORTNAME=	llvm
 DISTVERSION=	17.0.6
-PORTREVISION=	13
+PORTREVISION=	14
 CATEGORIES=	devel lang
 MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION:S/rc/-rc/}/ \
 		https://${PRE_}releases.llvm.org/${LLVM_RELEASE}${RCDIR}/
@@ -175,7 +175,9 @@ CMAKE_BUILD_TYPE=	RelWithDebInfo
 STRIP=
 .endif
 
-PLIST_SUB+=	LLVM_MAJOR=${LLVM_MAJOR} \
+PLIST_SUB+=	\
+		CMAKE_BUILD_TYPE_CASE=${CMAKE_BUILD_TYPE} \
+		LLVM_MAJOR=${LLVM_MAJOR} \
 		LLVM_RELEASE=${LLVM_RELEASE} \
 		LLVM_SUFFIX=${LLVM_SUFFIX}
 
@@ -564,7 +566,8 @@ build-plist:
 	    ${GREP} -v man/man1 | ${SED} -e 's|${STAGEDIR}${PREFIX}/||' \
 	    -e 's|${PYTHON_SITELIBDIR:C|${PREFIX}/||}|%%PYTHON_SITELIBDIR%%|' \
 	    -e 's|${LLVM_RELEASE}|%%LLVM_RELEASE%%|' \
-	    -e 's|release.cmake|%%CMAKE_BUILD_TYPE%%.cmake|' \
+	    -e 's|${CMAKE_BUILD_TYPE:tl}.cmake|%%CMAKE_BUILD_TYPE%%.cmake|' \
+	    -e 's|-${CMAKE_BUILD_TYPE}/|-%%CMAKE_BUILD_TYPE_CASE%%/|' \
 	    -e 's|${LLVM_RELEASE:C/\./\\./g}|%%LLVM_RELEASE%%|' \
 	    -e 's|${LLVM_SUFFIX:C/\./\\./g}|%%LLVM_SUFFIX%%|' \
 	    -e 's|/${LLVM_MAJOR}/|/%%LLVM_MAJOR%%/|' \

@@ -1,6 +1,6 @@
 PORTNAME=	janet
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.42.0
+DISTVERSION=	1.43.1
 CATEGORIES=	lang
 
 MAINTAINER=	bsd.hsw@gmail.com
@@ -10,10 +10,12 @@ WWW=		https://janet-lang.org/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		inotify meson
+USES=		cpe inotify meson
 USE_GITHUB=	yes
 GH_ACCOUNT=	janet-lang
 USE_LDCONFIG=	yes
+
+CPE_VENDOR=	janet-lang
 
 PLIST_SUB=	SOVERSION=${DISTVERSION} \
 		SOVERSION_R=${DISTVERSION:R}

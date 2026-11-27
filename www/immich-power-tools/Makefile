@@ -1,6 +1,6 @@
 PORTNAME=	immich-power-tools
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.25.0
+DISTVERSION=	0.26.0
 PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	https://github.com/joneum/FreeBSD-Immich/releases/download/ipt-v${DISTVERSION}/:buildkit
@@ -19,7 +19,7 @@ ONLY_FOR_ARCHS_REASON=	lang/bun is available for these architectures only
 
 BUILD_DEPENDS=	bun:lang/bun
 
-USES=		gmake nodejs:22,build,run python:build
+USES=		gmake nodejs:build,run python:build
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	immich-power-tools

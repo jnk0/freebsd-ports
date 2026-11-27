@@ -1,5 +1,5 @@
 PORTNAME=	proxychains-ng
-DISTVERSION=	4.17
+DISTVERSION=	4.18
 CATEGORIES=	net security
 MASTER_SITES=	https://github.com/rofl0r/${PORTNAME}/releases/download/v${DISTVERSION}/ \
 		http://ftp.barfooze.de/pub/sabotage/tarballs/
@@ -11,9 +11,11 @@ WWW=		https://github.com/rofl0r/proxychains-ng
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-USES=		gmake tar:xz
+USES=		cpe gmake tar:xz
 USE_LDCONFIG=	yes
 HAS_CONFIGURE=	yes
+
+CPE_VENDOR=	proxychains-ng_project
 
 CONFLICTS=	proxychains
 

@@ -1,7 +1,6 @@
 PORTNAME=	interactsh
-PORTVERSION=	1.4.0
+PORTVERSION=	1.4.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	3
 CATEGORIES=	security
 
 MAINTAINER=	danilo@FreeBSD.org
@@ -10,7 +9,9 @@ WWW=		https://github.com/projectdiscovery/interactsh
 
 LICENSE=	MIT
 
-USES=		go:modules
+USES=		cpe go:modules
+
+CPE_VENDOR=	projectdiscovery
 
 GO_MODULE=	github.com/projectdiscovery/${PORTNAME}
 GO_TARGET=	./cmd/${PORTNAME}-server ./cmd/${PORTNAME}-client

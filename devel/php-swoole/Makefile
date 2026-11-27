@@ -1,6 +1,6 @@
 PORTNAME=	swoole
 DISTVERSIONPREFIX=	v
-DISTVERSION=	6.2.5
+DISTVERSION=	6.2.6
 PORTREVISION=	0
 CATEGORIES=	devel net
 PKGNAMEPREFIX=	${PHP_PKGNAMEPREFIX}
@@ -15,7 +15,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 NOT_FOR_ARCHS=	i386 powerpc
 NOT_FOR_ARCHS_REASON=	upstream drop 32 bits support
 
-USES=		compiler:c11 localbase:ldflags php:ext pkgconfig ssl
+USES=		compiler:c11 cpe localbase:ldflags php:ext pkgconfig ssl
 IGNORE_WITH_PHP=	86
 USE_GITHUB=	yes
 GH_PROJECT=	swoole-src

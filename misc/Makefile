@@ -15,6 +15,7 @@
     SUBDIR += amanda-perl-wrapper
     SUBDIR += amanda-server
     SUBDIR += ansiweather
+    SUBDIR += anthropic-cli
     SUBDIR += antigravity-cli
     SUBDIR += apparix
     SUBDIR += arrow-datafusion
@@ -228,7 +229,6 @@
     SUBDIR += img2xterm
     SUBDIR += ini_file_manager
     SUBDIR += inplace
-    SUBDIR += ipa_conv
     SUBDIR += ipbt
     SUBDIR += ironscanner
     SUBDIR += iselect
@@ -420,6 +420,9 @@
     SUBDIR += p5-Zen-Koans
     SUBDIR += p5-asterisk-perl
     SUBDIR += parley
+    SUBDIR += paseo
+    SUBDIR += paseo-desktop
+    SUBDIR += paseo-hub
     SUBDIR += pastebinit
     SUBDIR += patchutils
     SUBDIR += pauker
@@ -569,6 +572,7 @@
     SUBDIR += py-langgraph
     SUBDIR += py-langgraph-checkpoint
     SUBDIR += py-langgraph-checkpoint-conformance
+    SUBDIR += py-langgraph-checkpoint-postgres
     SUBDIR += py-langgraph-checkpoint-sqlite
     SUBDIR += py-langgraph-prebuilt
     SUBDIR += py-langgraph-sdk
@@ -609,6 +613,7 @@
     SUBDIR += py-modelscope
     SUBDIR += py-modelscope-hub
     SUBDIR += py-molequeue
+    SUBDIR += py-mslk
     SUBDIR += py-napari
     SUBDIR += py-napari-resources
     SUBDIR += py-napari-svg
@@ -633,6 +638,7 @@
     SUBDIR += py-openvdb
     SUBDIR += py-optimum
     SUBDIR += py-optuna
+    SUBDIR += py-oss-harmony
     SUBDIR += py-oterm
     SUBDIR += py-paddlepaddle
     SUBDIR += py-palettable

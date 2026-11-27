@@ -5,7 +5,7 @@ PORTREVISION=	2
 CATEGORIES=	benchmarks
 PKGNAMESUFFIX=	${PHP_PKGNAMESUFFIX}
 
-MAINTAINER=	pizzamig@FreeBSD.org
+MAINTAINER=	bofh@FreeBSD.org
 COMMENT=	Phoronix Benchmarking Suite
 WWW=		https://www.phoronix-test-suite.com
 
@@ -14,10 +14,13 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 RUN_DEPENDS=	bash:shells/bash
 
-USES=		php:cli,build,flavors python shebangfix sudo
+USES=		cpe php:cli,build,flavors python shebangfix sudo
 USE_GITHUB=	yes
 USE_PHP=	curl dom gd pcntl posix simplexml zip zlib
 NO_BUILD=	yes
+
+CPE_VENDOR=	phoronix-media
+CPE_PRODUCT=	${PORTNAME:tl:S/-/_/g}
 
 PORTDATA=	*
 PORTDOCS=	*

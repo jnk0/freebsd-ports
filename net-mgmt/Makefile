@@ -68,6 +68,7 @@
     SUBDIR += docsis
     SUBDIR += driftnet
     SUBDIR += ehnt
+    SUBDIR += emfor
     SUBDIR += etherape
     SUBDIR += ettercap
     SUBDIR += fastnetmon
@@ -412,6 +413,7 @@
     SUBDIR += thanos
     SUBDIR += torrus
     SUBDIR += triton-guesttools
+    SUBDIR += ubgpsuite
     SUBDIR += unbound_exporter
     SUBDIR += unifi10
     SUBDIR += unifi9

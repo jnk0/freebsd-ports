@@ -1,10 +1,11 @@
 PORTNAME=	stalwart
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.16.27
+PORTREVISION=	1
 CATEGORIES=	mail
 PKGNAMESUFFIX=	016
 
-MAINTAINER=	orville@anislet.dev
+MAINTAINER=	jsi@jules.de
 COMMENT=	Stalwart Mail Server
 WWW=		https://stalw.art/
 

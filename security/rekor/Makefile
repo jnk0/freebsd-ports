@@ -1,13 +1,13 @@
 PORTNAME=	rekor
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.5.6
+DISTVERSION=	1.6.3
 CATEGORIES=	security
 
 MAINTAINER=	bofh@FreeBSD.org
 COMMENT=	Software Supply Chain Transparency Log ${${FLAVOR}_COMMENT}
 WWW=		https://www.sigstore.dev/
 
-LICENSE=	APACHE20
+LICENSE=	Apache-2.0
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 FLAVORS=	client server
@@ -45,7 +45,7 @@ USERS=		${PORTNAME}
 GROUPS=		${PORTNAME}
 .endif
 
-GIT_HASH=	e9f28648c874f7fb39e758629a0d6d97408a554c
+GIT_HASH=	b8a16476cfba19a2838f237ab4f7be0637bb6175
 
 .include <bsd.port.pre.mk>
 

@@ -8,7 +8,7 @@ MAINTAINER=	nxjoseph@FreeBSD.org
 COMMENT=	Collaborative editing library
 WWW=		https://github.com/gobby/libinfinity
 
-LICENSE=	LGPL21
+LICENSE=	LGPL-2.1-only
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	gtkdocize:textproc/gtk-doc
@@ -19,9 +19,11 @@ LIB_DEPENDS=	libatk-1.0.so:accessibility/at-spi2-core \
 		libgsasl.so:security/libgsasl \
 		libharfbuzz.so:print/harfbuzz
 
-USES=		gettext gmake gnome libtool:build pathfix pkgconfig
+USES=		cpe gettext gmake gnome libtool:build pathfix pkgconfig
 USE_GNOME=	cairo gdkpixbuf glib20 gtk30 intltool libxml2 pango
 USE_LDCONFIG=	yes
+
+CPE_VENDOR=	libinfinity_project
 
 GNU_CONFIGURE=	yes
 

@@ -1,5 +1,6 @@
 PORTNAME=	activejob
 PORTVERSION=	${RAILS_VERSION}
+PORTREVISION=	1
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 PKGNAMESUFFIX=	-gitlab
@@ -21,8 +22,6 @@ CPE_VENDOR=	rubyonrails
 CPE_PRODUCT=	active_job
 
 NO_ARCH=	yes
-
-PORTSCOUT=	limit:^7\.2\.
 
 .include "${.CURDIR}/../../www/gitlab/Makefile.common"
 .include <bsd.port.mk>

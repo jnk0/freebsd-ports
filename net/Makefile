@@ -947,6 +947,7 @@
     SUBDIR += packetdrill
     SUBDIR += packter-agent
     SUBDIR += parpd
+    SUBDIR += paseo-relay
     SUBDIR += pathneck
     SUBDIR += pbnc
     SUBDIR += pear-Auth_RADIUS
@@ -1753,6 +1754,7 @@
     SUBDIR += wping
     SUBDIR += wstunnel
     SUBDIR += wutil
+    SUBDIR += x-cli
     SUBDIR += x11vnc
     SUBDIR += x2goclient
     SUBDIR += x2goclient-cli

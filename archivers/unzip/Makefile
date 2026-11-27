@@ -1,6 +1,6 @@
 PORTNAME=	unzip
 PORTVERSION=	6.0
-PORTREVISION=	8
+PORTREVISION=	9
 CATEGORIES=	archivers
 MASTER_SITES=	SF/infozip/UnZip%206.x%20%28latest%29/UnZip%20${PORTVERSION}/:main \
 		SF/infozip/UnZip%205.x%20and%20earlier/5.51/:unreduce
@@ -12,9 +12,7 @@ COMMENT=	List, test, and extract compressed files from a ZIP archive
 WWW=		https://infozip.sourceforge.net/UnZip.html
 
 LICENSE=	Info-ZIP
-LICENSE_NAME=	Info-ZIP license
 LICENSE_FILE=	${WRKSRC}/LICENSE
-LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 USES=		cpe
 CPE_VENDOR=	unzip_project

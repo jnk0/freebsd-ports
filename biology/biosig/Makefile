@@ -1,6 +1,5 @@
 PORTNAME=	biosig
-DISTVERSION=	3.9.8
-PORTREVISION=	1
+DISTVERSION=	4.0.0
 CATEGORIES=	biology
 MASTER_SITES=	SF/${PORTNAME}/BioSig%20for%20C_C%2B%2B/src/
 DISTNAME=	${PORTNAME}-${PORTVERSION}.src
@@ -19,9 +18,12 @@ LIB_DEPENDS=	libb64.so:converters/libb64 \
 		libiconv.so:converters/libiconv \
 		libtinyxml.so:textproc/tinyxml
 
-USES=		gmake gnome iconv localbase:ldflags tar:xz
+USES=		cpe gmake gnome iconv localbase:ldflags tar:xz
 USE_GNOME=	libxml2
 USE_LDCONFIG=	yes
+
+CPE_VENDOR=	libbiosig_project
+CPE_PRODUCT=	libbiosig
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSION}
 

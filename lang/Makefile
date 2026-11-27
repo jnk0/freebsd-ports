@@ -34,7 +34,6 @@
     SUBDIR += chez-scheme
     SUBDIR += chibi-scheme
     SUBDIR += chicken
-    SUBDIR += cim
     SUBDIR += cjs
     SUBDIR += cling
     SUBDIR += clips
@@ -152,6 +151,7 @@
     SUBDIR += hs-koka
     SUBDIR += hs-unlambda
     SUBDIR += huc
+    SUBDIR += idris2
     SUBDIR += inko
     SUBDIR += intercal
     SUBDIR += io
@@ -392,6 +392,7 @@
     SUBDIR += tolua++
     SUBDIR += trealla-prolog
     SUBDIR += tuareg-mode.el
+    SUBDIR += typescript-devel
     SUBDIR += typescript-go
     SUBDIR += typstyle
     SUBDIR += ucc

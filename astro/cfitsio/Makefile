@@ -1,5 +1,6 @@
 PORTNAME=	cfitsio
 PORTVERSION=	4.7.0
+PORTREVISION=	1
 CATEGORIES=	astro
 MASTER_SITES=	https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/ \
 		https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/oldvers/ \
@@ -14,9 +15,7 @@ WWW=		https://heasarc.gsfc.nasa.gov/fitsio/ \
 		https://github.com/HEASARC/cfitsio
 
 LICENSE=	CFITSIO
-LICENSE_NAME=	CFITSIO License
 LICENSE_FILE=	${WRKSRC}/licenses/License.txt
-LICENSE_PERMS=	auto-accept dist-mirror dist-sell pkg-mirror pkg-sell
 
 LIB_DEPENDS=	libcurl.so:ftp/curl
 

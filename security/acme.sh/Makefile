@@ -1,5 +1,6 @@
 PORTNAME=	acme.sh
-PORTVERSION=	3.1.6
+PORTVERSION=	3.1.7
+PORTREVISION=	1
 CATEGORIES=	security
 
 MAINTAINER=	dvl@FreeBSD.org
@@ -9,8 +10,10 @@ WWW=		https://github.com/acmesh-official/acme.sh
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
-USES=		shebangfix
+USES=		cpe shebangfix
 SHEBANG_FILES=	deploy/synology_dsm.sh
+
+CPE_VENDOR=	acme.sh_project
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	acmesh-official

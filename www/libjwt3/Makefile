@@ -1,5 +1,5 @@
 PORTNAME=	libjwt
-PORTVERSION=	3.6.2
+PORTVERSION=	3.6.3
 CATEGORIES=	www
 MASTER_SITES=	https://github.com/benmcollins/libjwt/releases/download/v${PORTVERSION}/
 PKGNAMESUFFIX=	3
@@ -17,7 +17,7 @@ LIB_DEPENDS=	libjansson.so:devel/jansson
 TEST_DEPENDS=	bash>=0:shells/bash \
 		check>=0.9.10:devel/check
 
-USES=		cmake:testing pkgconfig ssl tar:xz
+USES=		cmake:testing cpe pkgconfig ssl tar:xz
 
 CMAKE_OFF=	CODE_COVERAGE_VERBOSE \
 		ENABLE_COVERAGE \

@@ -1,5 +1,6 @@
 PORTNAME=	calligra
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
+PORTREVISION=	1
 CATEGORIES=	editors kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
@@ -25,7 +26,7 @@ LIB_DEPENDS=	libImath.so:math/Imath \
 		libpoppler-qt6.so:graphics/poppler-qt6 \
 		libpoppler.so:graphics/poppler \
 		libqca-qt6.so:devel/qca@qt6 \
-		libqt6keychain.so:security/qtkeychain@qt6 \
+		libqt6keychain.so:security/qtkeychain \
 		librevenge-0.0.so:textproc/librevenge \
 		libvisio-0.1.so:textproc/libvisio01 \
 		libwpd-0.10.so:textproc/libwpd010 \

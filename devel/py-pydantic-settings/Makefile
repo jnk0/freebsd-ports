@@ -1,5 +1,6 @@
 PORTNAME=	pydantic-settings
-DISTVERSION=	2.16.1
+DISTVERSION=	2.16.3
+PORTREVISION=	1
 CATEGORIES=	devel python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -35,6 +36,6 @@ NO_ARCH=	yes
 
 CPE_VENDOR=	pydantic_project
 
-# tests as of 2.16.1: 1095 passed, 154 skipped
+# tests as of 2.16.3: 1221 passed, 156 skipped
 
 .include <bsd.port.mk>

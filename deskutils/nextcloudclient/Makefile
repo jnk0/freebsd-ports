@@ -1,6 +1,7 @@
 PORTNAME=	nextcloudclient
 PORTVERSION=	35.0.3
 DISTVERSIONPREFIX=	v
+PORTREVISION=	2
 CATEGORIES=	deskutils
 
 MAINTAINER=	mr@FreeBSD.org
@@ -12,7 +13,7 @@ LICENSE=	GPLv2
 BUILD_DEPENDS=	inkscape:graphics/inkscape
 LIB_DEPENDS=	libinotify.so:devel/libinotify \
 		libkdsingleapplication-qt6.so:devel/kdsingleapplication \
-		libqt6keychain.so:security/qtkeychain@qt6 \
+		libqt6keychain.so:security/qtkeychain \
 		libxkbcommon.so:x11/libxkbcommon \
 		libp11.so:security/libp11
 
@@ -25,7 +26,7 @@ USE_CXXSTD=	c++20
 USE_GL=		opengl
 USE_KDE=	archive ecm:build
 USE_LDCONFIG=	yes
-USE_QT=		5compat base declarative positioning svg websockets
+USE_QT=		5compat base declarative positioning svg websockets tools:build
 CMAKE_ARGS=	-DBUILD_UPDATER:BOOL=OFF \
 		-DWITH_STACK_PROTECTOR:BOOL=OFF
 CXXFLAGS+=	-fPIC

@@ -1,38 +1,47 @@
 PORTNAME=	sqlcipher
 DISTVERSIONPREFIX=	v
-DISTVERSION=	4.19.0
+DISTVERSION=	4.20.0
+PORTREVISION=	2
 CATEGORIES=	databases
 
-MAINTAINER=	jharris@widomaker.com
+MAINTAINER=	mce@FreeBSD.org
 COMMENT=	Encrypted SQLite database
 WWW=		https://www.zetetic.net/sqlcipher/
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
-USES=		cpe libedit libtool localbase:ldflags ssl tcl:86,build
+USES=		cpe libtool ssl
 CPE_VENDOR=	zetetic
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-readline \
-		--disable-tcl \
 		--dll-basename=libsqlcipher \
+		--editline \
+		--enable-fts5 \
 		--includedir=${PREFIX}/include/sqlcipher \
-		--soname=libsqlcipher.so.0 \
+		--soname=legacy \
 		--with-tempstore=yes
 
-TEST_TARGET=	test # tests fail to run, see https://github.com/sqlcipher/sqlcipher/issues/527
-
-CFLAGS+=	-I${OPENSSLINC}
-CPPFLAGS+=	-DOMIT_MEMLOCK \
+CFLAGS+=	-DOMIT_MEMLOCK \
 		-DSQLITE_ENABLE_COLUMN_METADATA=1 \
 		-DSQLITE_ENABLE_UNLOCK_NOTIFY \
 		-DSQLITE_EXTRA_INIT=sqlcipher_extra_init \
 		-DSQLITE_EXTRA_SHUTDOWN=sqlcipher_extra_shutdown \
-		-DSQLITE_HAS_CODEC
-LDFLAGS+=	-L${OPENSSLLIB} -lcrypto
+		-DSQLITE_HAS_CODEC \
+		-I${OPENSSLINC}
+LDFLAGS+=	-L${OPENSSLLIB} -lcrypto -ledit
+
+SOVERSION=	3.54.1
+PLIST_SUB=	SOVERSION=${SOVERSION}
+
+OPTIONS_DEFINE=		TEST
+TEST_USES=		tcl:91,build,test
+TEST_CONFIGURE_ON=	--with-tcl=${TCL_LIBDIR} --with-tclsh=${TCLSH}
+TEST_CONFIGURE_OFF=	--disable-tcl
+TEST_CFLAGS=		-DSQLCIPHER_TEST
 
 post-install:
 	${MV}   ${STAGEDIR}${PREFIX}/bin/sqlite3 \
@@ -41,11 +50,14 @@ post-install:
 		${STAGEDIR}${PREFIX}/lib/libsqlcipher.a
 	${MV}   ${STAGEDIR}${PREFIX}/libdata/pkgconfig/sqlite3.pc \
 		${STAGEDIR}${PREFIX}/libdata/pkgconfig/sqlcipher.pc
-	${MV}   ${STAGEDIR}${PREFIX}/share/man/man1/sqlite3.1 \
-		${STAGEDIR}${PREFIX}/share/man/man1/sqlcipher.1
-	${REINPLACE_CMD} -i "" -e 's|sqlite3|sqlcipher|g; \
-		s|/usr/local/include|$${prefix}/include|g' \
-		${STAGEDIR}${PREFIX}/libdata/pkgconfig/sqlcipher.pc
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/*.so ${STAGEDIR}${PREFIX}/bin/*
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/sqlcipher \
+		${STAGEDIR}${PREFIX}/lib/libsqlcipher.so.${SOVERSION}
+
+post-install-TEST-on:
+	@${RM} -r ${STAGEDIR}${TCL_LIBDIR}
+
+do-test-TEST-on:
+	cd ${WRKSRC} && ${MAKE_CMD} testfixture && \
+		./testfixture test/sqlcipher.test
 
 .include <bsd.port.mk>

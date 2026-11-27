@@ -9,7 +9,7 @@ COMMENT=	Free collaborative editor
 WWW=		https://gobby.github.io/ \
 		https://github.com/gobby/gobby
 
-LICENSE=	ISCL
+LICENSE=	ISC
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	itstool:textproc/itstool
@@ -20,11 +20,13 @@ LIB_DEPENDS=	libgnutls.so:security/gnutls \
 		libinftext-0.7.so:textproc/libinfinity \
 		libinftextgtk-0.7.so:textproc/libinfinity
 
-USES=		compiler:c++11-lang desktop-file-utils gettext-tools gmake \
+USES=		compiler:c++11-lang cpe desktop-file-utils gettext-tools gmake \
 		gnome pathfix pkgconfig
 USE_CXXSTD=	c++11
 USE_GNOME=	atkmm cairomm glibmm gtkmm30 gtksourceview3 intltool \
 		libsigc++20 libxml++26 pangomm
+
+CPE_VENDOR=	gobby_project
 
 GNU_CONFIGURE=	yes
 

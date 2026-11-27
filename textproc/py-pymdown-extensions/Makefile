@@ -1,5 +1,5 @@
 PORTNAME=	pymdown-extensions
-DISTVERSION=	13.1
+DISTVERSION=	13.1.2
 CATEGORIES=	textproc python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -16,8 +16,11 @@ BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}hatchling>=1.26.0:devel/py-hatchling@${PY_
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}markdown>=3.10.3:textproc/py-markdown@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pyyaml>=0:devel/py-pyyaml@${PY_FLAVOR}
 
-USES=		python
+USES=		cpe python
 USE_PYTHON=	autoplist pep517
+
+CPE_VENDOR=	facelessuser
+CPE_PRODUCT=	${PORTNAME:tl:S/-/_/g}
 
 NO_ARCH=	yes
 

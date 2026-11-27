@@ -167,6 +167,7 @@
     SUBDIR += R-cran-uroot
     SUBDIR += R-cran-wk
     SUBDIR += R-cran-xts
+    SUBDIR += R-cran-yardstick
     SUBDIR += R-cran-zoo
     SUBDIR += SCIP
     SUBDIR += SoPlex
@@ -275,7 +276,6 @@
     SUBDIR += combblas
     SUBDIR += conauto
     SUBDIR += concorde
-    SUBDIR += convertall
     SUBDIR += coq
     SUBDIR += cosma
     SUBDIR += costa
@@ -299,6 +299,7 @@
     SUBDIR += dionysus
     SUBDIR += disco
     SUBDIR += dqfun
+    SUBDIR += dragonbox
     SUBDIR += drgeo
     SUBDIR += dsdp
     SUBDIR += dsfmt
@@ -656,6 +657,7 @@
     SUBDIR += octave-forge-oct2mat
     SUBDIR += octave-forge-octave-pool
     SUBDIR += octave-forge-octave_boost
+    SUBDIR += octave-forge-octave_data_encryption_standard
     SUBDIR += octave-forge-octave_ffmpeg_free
     SUBDIR += octave-forge-octave_mermaid_js
     SUBDIR += octave-forge-octave_php_wrapper
@@ -1019,6 +1021,7 @@
     SUBDIR += py-evalidate
     SUBDIR += py-fairlearn
     SUBDIR += py-faiss
+    SUBDIR += py-fast-simplification
     SUBDIR += py-fastcluster
     SUBDIR += py-fdasrsf
     SUBDIR += py-fenics-basix
@@ -1082,6 +1085,7 @@
     SUBDIR += py-mip
     SUBDIR += py-mixsimulator
     SUBDIR += py-ml-dtypes
+    SUBDIR += py-mlc-z3-static
     SUBDIR += py-mnnpy
     SUBDIR += py-moarchiving
     SUBDIR += py-modin
@@ -1203,6 +1207,7 @@
     SUBDIR += py-uncertainties
     SUBDIR += py-unyt
     SUBDIR += py-vector
+    SUBDIR += py-vhacdx
     SUBDIR += py-vincenty
     SUBDIR += py-yt
     SUBDIR += py-z3-solver

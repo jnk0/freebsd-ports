@@ -1,6 +1,6 @@
 PORTNAME=	llvm
 DISTVERSION=	18.1.8
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	devel lang
 MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION:S/rc/-rc/}/
 PKGNAMESUFFIX=	${LLVM_SUFFIX}
@@ -178,7 +178,9 @@ CMAKE_BUILD_TYPE=	RelWithDebInfo
 STRIP=
 .endif
 
-PLIST_SUB+=	LLVM_MAJOR_MINOR=${LLVM_MAJOR_MINOR} \
+PLIST_SUB+=	\
+		CMAKE_BUILD_TYPE_CASE=${CMAKE_BUILD_TYPE} \
+		LLVM_MAJOR_MINOR=${LLVM_MAJOR_MINOR} \
 		LLVM_MAJOR=${LLVM_MAJOR} \
 		LLVM_RELEASE=${LLVM_RELEASE} \
 		LLVM_SUFFIX=${LLVM_SUFFIX}
@@ -585,7 +587,8 @@ build-plist:
 	    -e 's|${PYTHON_SITELIBDIR:C|${PREFIX}/||}|%%PYTHON_SITELIBDIR%%|' \
 	    -e 's|${PYTHON_TAG:C/\./\\./g}${PYTHON_ABIVER}|%%PYTHON_TAG%%%%PYTHON_ABIVER%%|' \
 	    -e 's|${LLVM_RELEASE}|%%LLVM_RELEASE%%|' \
-	    -e 's|release.cmake|%%CMAKE_BUILD_TYPE%%.cmake|' \
+	    -e 's|${CMAKE_BUILD_TYPE:tl}.cmake|%%CMAKE_BUILD_TYPE%%.cmake|' \
+	    -e 's|-${CMAKE_BUILD_TYPE}/|-%%CMAKE_BUILD_TYPE_CASE%%/|' \
 	    -e 's|${LLVM_RELEASE:C/\./\\./g}|%%LLVM_RELEASE%%|' \
 	    -e 's|${LLVM_SUFFIX:C/\./\\./g}|%%LLVM_SUFFIX%%|' \
 	    -e 's|${LLVM_MAJOR_MINOR:C/\./\\./}|%%LLVM_MAJOR_MINOR%%|' \

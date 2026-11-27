@@ -1,5 +1,5 @@
 PORTNAME=	musicpd
-PORTVERSION=	0.24.19
+PORTVERSION=	0.24.20
 CATEGORIES=	audio
 MASTER_SITES=	https://www.musicpd.org/download/mpd/${PORTVERSION:R}/
 DISTNAME=	mpd-${PORTVERSION}
@@ -14,8 +14,11 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 LIB_DEPENDS=	libfmt.so:devel/libfmt \
 		libicudata.so:devel/icu
 
-USES=		compiler:c++20-lang localbase:ldflags meson pkgconfig \
+USES=		compiler:c++20-lang cpe localbase:ldflags meson pkgconfig \
 		python:build tar:xz
+
+CPE_VENDOR=	${PORTNAME:tl}
+CPE_PRODUCT=	music_player_daemon
 
 USE_RC_SUBR=	${PORTNAME}
 MESON_ARGS=	--auto-features=disabled \

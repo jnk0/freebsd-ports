@@ -1,5 +1,6 @@
 PORTNAME=	odoo
-PORTVERSION=	19.0.20261023
+PORTVERSION=	20.0.20261123
+PORTREVISION=	2
 CATEGORIES=	finance www
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -15,7 +16,7 @@ LIB_DEPENDS=	libxslt.so:textproc/libxslt \
 		libevent.so:devel/libevent \
 		libsasl2.so:security/cyrus-sasl2
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}asn1crypto>=0:devel/py-asn1crypto@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}Babel>=1.3:devel/py-babel@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}babel>=1.3:devel/py-babel@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}cbor2>0:devel/py-cbor2@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}chardet>=0:textproc/py-chardet@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}decorator>0:devel/py-decorator@${PY_FLAVOR} \
@@ -24,6 +25,7 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}asn1crypto>=0:devel/py-asn1crypto@${PY_FLAVO
 		${PYTHON_PKGNAMEPREFIX}GeoIP2>0:net/py-GeoIP2@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}gevent>=0:devel/py-gevent@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}greenlet>=0:devel/py-greenlet@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}h11>0:net/py-h11@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}html2text>=0:textproc/py-html2text@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}idna>0:dns/py-idna@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}Jinja2>=0:devel/py-Jinja2@${PY_FLAVOR} \
@@ -68,18 +70,18 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}asn1crypto>=0:devel/py-asn1crypto@${PY_FLAVO
 
 USES=		cpe gnome ldap pgsql python shebangfix
 USE_GITHUB=	yes
-GH_TAGNAME=	a2825bced0f61f5acb7e9f0c3139cf9a2a9c3708
+GH_TAGNAME=	7d3800a0e50abeee6dad60e76a75300d2e54fab5
 USE_GNOME=	libxml2
 USE_PYTHON=	autoplist cryptography pep517
 USE_RC_SUBR=	${PORTNAME}
 
 SHEBANG_FILES=	${WRKSRC}/${PORTNAME}-bin \
-		${WRKSRC}/${PORTNAME}/addons/iot_box_image/configuration/led_manager.sh \
 		${WRKSRC}/${PORTNAME}/addons/mail/static/scripts/odoo-mailgate.py \
 		${WRKSRC}/${PORTNAME}/addons/web/tooling/*.sh \
+		${WRKSRC}/setup/iot_box_builder/overwrite_before_init/etc/*.sh \
 		${WRKSRC}/${PORTNAME}/addons/web/tooling/hooks/pre-commit
 
-CONFLICTS=	odoo16 odoo17 odoo18
+CONFLICTS=	odoo16 odoo17 odoo18 odoo19
 
 ETCDIR=		${PREFIX}/etc/odoo
 NO_ARCH=	yes
@@ -94,7 +96,7 @@ post-extract:
 post-patch:
 	@${REINPLACE_CMD} -i "" -e 's|(index !== |(index == |g' \
 		${WRKSRC}/odoo/addons/web/static/src/core/network/download.js
-# release.py's version is 19.0; name the wheel after PORTVERSION so it
+# release.py's version is 20.0; name the wheel after PORTVERSION so it
 # matches the pep517 install glob (the runtime version is unchanged)
 	@${REINPLACE_CMD} -i "" -e "s|^    version=version,$$|    version='${PORTVERSION}',|" \
 		${WRKSRC}/setup.py

@@ -1,5 +1,6 @@
 PORTNAME=	libevt
 DISTVERSION=	alpha-20240421
+PORTREVISION=	1
 CATEGORIES=	devel
 MASTER_SITES=	https://github.com/libyal/libevt/releases/download/${PORTVERSION:E}/ \
 		LOCAL/antoine
@@ -9,7 +10,7 @@ COMMENT=	Library and tooling to access the Windows Event Log (EVT) format
 WWW=		https://github.com/libyal/libevt
 
 LICENSE=	LGPL3+
-LICENSE_FILE=	${WRKSRC}/COPYING
+LICENSE_FILE=	${WRKSRC}/COPYING.LESSER
 
 LIB_DEPENDS=	libfwnt.so:devel/libfwnt \
 		libregf.so:devel/libregf

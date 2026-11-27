@@ -1,6 +1,7 @@
 PORTNAME=	libpff
 DISTVERSIONPREFIX=	alpha-
 DISTVERSION=	20231205
+PORTREVISION=	1
 CATEGORIES=	devel
 MASTER_SITES=	https://github.com/libyal/libpff/releases/download/${DISTVERSION}/ \
 		LOCAL/antoine
@@ -10,7 +11,7 @@ COMMENT=	Library and tools to access the PFF and the OFF formats
 WWW=		https://github.com/libyal/libpff
 
 LICENSE=	LGPL3+
-LICENSE_FILE=	${WRKSRC}/COPYING
+LICENSE_FILE=	${WRKSRC}/COPYING.LESSER
 
 LIB_DEPENDS=	libfwnt.so:devel/libfwnt
 BUILD_DEPENDS=	${PY_SETUPTOOLS}

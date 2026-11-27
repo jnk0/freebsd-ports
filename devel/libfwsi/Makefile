@@ -1,6 +1,7 @@
 PORTNAME=	libfwsi
 # If/When moving from experimental to alpha, switch to DISTVERSIONPREFIX to prevent PORTEPOCH
 DISTVERSION=	experimental-20240423
+PORTREVISION=	1
 CATEGORIES=	devel
 MASTER_SITES=	https://github.com/libyal/libfwsi/releases/download/${PORTVERSION:E}/ \
 		LOCAL/antoine
@@ -10,7 +11,7 @@ COMMENT=	Library to access the Windows Shell Item format
 WWW=		https://github.com/libyal/libfwsi
 
 LICENSE=	LGPL3+
-LICENSE_FILE=	${WRKSRC}/COPYING
+LICENSE_FILE=	${WRKSRC}/COPYING.LESSER
 
 BUILD_DEPENDS=	${PY_SETUPTOOLS}
 

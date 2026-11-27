@@ -1,6 +1,6 @@
 PORTNAME=	github-copilot-cli
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.0.112
+DISTVERSION=	1.0.114
 CATEGORIES=	misc # machine-learning
 MASTER_SITES=	https://github.com/github/copilot-cli/releases/download/${DISTVERSIONPREFIX}${DISTVERSION}/:amd64 \
 		https://github.com/github/copilot-cli/releases/download/${DISTVERSIONPREFIX}${DISTVERSION}/:aarch64
@@ -15,8 +15,11 @@ WWW=		https://github.com/github/copilot-cli
 ONLY_FOR_ARCHS=		aarch64 amd64
 ONLY_FOR_ARCHS_REASON=	is a Linux binary with a limited platform support
 
-USES=		linux:rl9
+USES=		cpe linux:rl9
 USE_LINUX=	base
+
+CPE_VENDOR=	github
+CPE_PRODUCT=	copilot-cli
 
 NO_BUILD=	yes
 NO_WRKSUBDIR=	yes

@@ -1,7 +1,10 @@
 [
 { type: install
   message: <<EOM
-Bulwark Lite has been installed to %%WWWDIR%%.
+Bulwark Lite can be served by a web server of your own (A) or run as an
+application inside Stalwart (B).
+
+A) Web server
 
 1. Set jmapServerUrl in %%WWWDIR%%/config.json to your
    JMAP server, e.g. https://mail.example.com.
@@ -14,6 +17,47 @@ Bulwark Lite has been installed to %%WWWDIR%%.
 3. Allow the browser to talk to the JMAP server (CORS). In Stalwart,
    enable "Permissive CORS policy" under Settings > Network > HTTP >
    Security.
+
+B) Stalwart application
+
+The Stalwart bundle is built into %%BUNDLE%%
+from the upstream bundle and the files in %%ETCDIR%%/stalwart:
+each file there (except *.sample) replaces or adds the file of the same
+path in the bundle. This happens on every install and upgrade of this
+package; after a change of your own, run
+
+  %%PREFIX%%/sbin/bulwark-lite-stalwart
+
+1. Optional: edit %%ETCDIR%%/stalwart/config.json, e.g. to set
+   loginCompanyName, loginImprintUrl or loginPrivacyPolicyUrl, then run
+   bulwark-lite-stalwart as above. Leave jmapServerUrl empty: the app
+   then talks to the Stalwart server that serves it, and needs no CORS.
+
+2. Let Stalwart load the bundle from the local file and mount it at
+   /webmail (Stalwart 1.0 or later; the user "stalwart" must be able to
+   read the file):
+
+     stalwart-cli create Application \
+       --field description='Bulwark Webmail' \
+       --field resourceUrl='file://%%BUNDLE%%' \
+       --field 'urlPrefix={"/webmail":true}'
+     stalwart-cli create Action/UpdateApps
+
+   or, in the web admin, add the same under Settings > Web Applications
+   and run Actions > Update applications.
+
+   Without changes of your own, the unmodified upstream bundle works
+   as well, either the copy in this package or the latest release
+   straight from upstream, which needs no package at all:
+
+     resourceUrl='file://%%DATADIR%%/bulwark-lite-stalwart.zip'
+     resourceUrl='https://github.com/bulwarkmail/webmail/releases/latest/download/bulwark-lite-stalwart.zip'
+
+3. Stalwart only reads the bundle when its applications are updated:
+   after every upgrade of this package or rebuild of the bundle, run
+   "stalwart-cli create Action/UpdateApps" (or "Update applications")
+   again. This reloads all applications, so check that every
+   resourceUrl is reachable first.
 
 See %%DOCSDIR%%/LITE-README.md (DOCS option) for details.
 EOM

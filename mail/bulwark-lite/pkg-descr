@@ -6,3 +6,7 @@ It runs entirely in the browser and is served by any web server, without
 Node.js. Features that need the server of the full edition (admin console,
 plugins, settings sync, web push) are not available; the full edition is
 mail/bulwark.
+
+The package also contains the upstream application bundle for Stalwart,
+merged with local changes (configuration, logos) into a bundle that
+Stalwart loads from the local file system.

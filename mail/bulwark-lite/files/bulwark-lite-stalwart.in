@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# Build the Stalwart application bundle of Bulwark Lite with the local
+# changes in %%ETCDIR%%/stalwart: every file there except *.sample
+# replaces or adds the file of the same path in the upstream bundle, so
+# config.json, a logo or any other file of the app can be customized.
+#
+# Usage: bulwark-lite-stalwart [output.zip]
+
+set -eu
+
+src="%%DATADIR%%/bulwark-lite-stalwart.zip"
+overlay="%%ETCDIR%%/stalwart"
+out="${1:-%%BUNDLE%%}"
+
+tmp=$(mktemp -d -t bulwark-lite)
+trap 'rm -rf "${tmp}"' EXIT INT TERM
+
+mkdir "${tmp}/app"
+unzip -q -d "${tmp}/app" "${src}"
+
+if [ -d "${overlay}" ]; then
+	tar -cf - -C "${overlay}" --exclude '*.sample' . |
+	    tar -xf - -C "${tmp}/app"
+fi
+
+# Stalwart wants index.html at the archive root, without a wrapping folder
+# or "./" prefix; list the files only, as the upstream bundle does.
+(cd "${tmp}/app" && find . -type f | sed 's|^\./||' | sort |
+    tar -cf "${tmp}/bundle.zip" --format zip -T -)
+
+mkdir -p "$(dirname "${out}")"
+install -m 0644 "${tmp}/bundle.zip" "${out}.new"
+mv -f "${out}.new" "${out}"
+echo "Wrote ${out}"

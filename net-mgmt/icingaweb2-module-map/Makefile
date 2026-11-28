@@ -1,7 +1,6 @@
 PORTNAME=	icingaweb2-module-map
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.0.0
-PORTREVISION=	4
+DISTVERSION=	2.1.0
 CATEGORIES=	net-mgmt www
 PKGNAMESUFFIX=	${PHP_PKGNAMESUFFIX}
 
@@ -12,7 +11,8 @@ WWW=		https://github.com/nbuchwitz/icingaweb2-module-map
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	icingaweb2${PHP_PKGNAMESUFFIX}>=2.12.1:net-mgmt/icingaweb2@${PHP_FLAVOR}
+RUN_DEPENDS=	icingaweb2${PHP_PKGNAMESUFFIX}>=2.13.0:net-mgmt/icingaweb2@${PHP_FLAVOR} \
+		icinga-php-library${PHP_PKGNAMESUFFIX}>0:net-mgmt/icinga-php-library@${PHP_FLAVOR}
 
 USES=		php:web,flavors
 IGNORE_WITH_PHP=	86

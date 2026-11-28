@@ -1,7 +1,6 @@
 PORTNAME=	icingaweb2-module-businessprocess
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.5.0
-PORTREVISION=	0
+DISTVERSION=	2.6.0
 CATEGORIES=	net-mgmt www
 PKGNAMESUFFIX=	${PHP_PKGNAMESUFFIX}
 
@@ -9,11 +8,12 @@ MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Manage Business Processes in Icinga Web 2
 WWW=		https://github.com/Icinga/icingaweb2-module-businessprocess
 
-LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/LICENSE
+LICENSE=	GPLv3+
+LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
-RUN_DEPENDS=	icingaweb2${PHP_PKGNAMESUFFIX}>=2.12.1:net-mgmt/icingaweb2@${PHP_FLAVOR} \
-		icinga-php-library${PHP_PKGNAMESUFFIX}>=0.13.1:net-mgmt/icinga-php-library@${PHP_FLAVOR}
+RUN_DEPENDS=	icingaweb2${PHP_PKGNAMESUFFIX}>=2.12.5:net-mgmt/icingaweb2@${PHP_FLAVOR} \
+		icinga-php-library${PHP_PKGNAMESUFFIX}>=0.19.0:net-mgmt/icinga-php-library@${PHP_FLAVOR} \
+		icinga-php-thirdparty${PHP_PKGNAMESUFFIX}>=0.15.0:net-mgmt/icinga-php-thirdparty@${PHP_FLAVOR}
 
 USES=		php:web,flavors
 IGNORE_WITH_PHP=	86

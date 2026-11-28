@@ -1,7 +1,6 @@
 PORTNAME=	icingaweb2-module-icingadb
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.2.3
-PORTREVISION=	1
+DISTVERSION=	1.5.0
 PORTEPOCH=	1
 CATEGORIES=	net-mgmt www
 PKGNAMESUFFIX=	${PHP_PKGNAMESUFFIX}
@@ -10,13 +9,13 @@ MAINTAINER=	dvl@FreeBSD.org
 COMMENT=	Publish, synchronize, and visualize Icinga data
 WWW=		https://icinga.com/docs/icinga-db-web/latest/doc/01-About/
 
-LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/LICENSE
+LICENSE=	GPLv3+
+LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
-RUN_DEPENDS=	icinga-php-library${PHP_PKGNAMESUFFIX}>=0.9:net-mgmt/icinga-php-library@${PHP_FLAVOR} \
-		icinga-php-thirdparty${PHP_PKGNAMESUFFIX}>=0.11.0:net-mgmt/icinga-php-thirdparty@${PHP_FLAVOR} \
+RUN_DEPENDS=	icinga-php-library${PHP_PKGNAMESUFFIX}>=1.2.0:net-mgmt/icinga-php-library@${PHP_FLAVOR} \
+		icinga-php-thirdparty${PHP_PKGNAMESUFFIX}>=1.1.0:net-mgmt/icinga-php-thirdparty@${PHP_FLAVOR} \
 		icingadb>0:net-mgmt/icingadb \
-		icingaweb2${PHP_PKGNAMESUFFIX}>=2.9:net-mgmt/icingaweb2@${PHP_FLAVOR}
+		icingaweb2${PHP_PKGNAMESUFFIX}>=2.12.5:net-mgmt/icingaweb2@${PHP_FLAVOR}
 
 USES=		cpe php:web,flavors shebangfix
 
@@ -55,8 +54,7 @@ MYSQL_USE=	PHP=mysqli,pdo_mysql
 WWWDIR?=	${PREFIX}/www/icingaweb2/modules/${PORTNAME:C/^.*-//}
 
 do-install:
-	(cd ${WRKSRC} && ${RM} -r .mailmap changelog.py icingaweb2.spec \
-		bin/license_writer.py packages test)
+	${RM} -r ${WRKSRC}/test
 	${MKDIR} ${STAGEDIR}${WWWDIR}
 	(cd ${WRKSRC} && \
 		${COPYTREE_SHARE} . ${STAGEDIR}${WWWDIR})

@@ -1,6 +1,6 @@
 %%WWWDIR%%/.mailmap
 %%WWWDIR%%/AUTHORS
-%%WWWDIR%%/LICENSE
+%%WWWDIR%%/LICENSE.md
 %%WWWDIR%%/README.md
 %%WWWDIR%%/application/clicommands/CheckCommand.php
 %%WWWDIR%%/application/clicommands/CleanupCommand.php
@@ -31,12 +31,14 @@
 %%WWWDIR%%/application/views/scripts/sni/index.phtml
 %%WWWDIR%%/config/systemd/icinga-x509.service
 %%WWWDIR%%/configuration.php
+%%WWWDIR%%/contrib/director-basket.json
 %%WWWDIR%%/doc/01-About.md
 %%WWWDIR%%/doc/02-Installation.md
 %%WWWDIR%%/doc/02-Installation.md.d/From-Source.md
 %%WWWDIR%%/doc/03-Configuration.md
 %%WWWDIR%%/doc/04-Scanning.md
 %%WWWDIR%%/doc/10-Monitoring.md
+%%WWWDIR%%/doc/11-Housekeeping.md
 %%WWWDIR%%/doc/80-Upgrading.md
 %%WWWDIR%%/doc/res/check-host-perf-data.png
 %%WWWDIR%%/doc/res/host-check-multiple-services.png
@@ -65,6 +67,7 @@
 %%WWWDIR%%/library/X509/Common/JobOptions.php
 %%WWWDIR%%/library/X509/Common/JobUtils.php
 %%WWWDIR%%/library/X509/Common/Links.php
+%%WWWDIR%%/library/X509/Common/ScanType.php
 %%WWWDIR%%/library/X509/Controller.php
 %%WWWDIR%%/library/X509/DataTable.php
 %%WWWDIR%%/library/X509/DbTool.php
@@ -100,10 +103,13 @@
 %%WWWDIR%%/library/X509/Widget/Jobs.php
 %%WWWDIR%%/library/X509/Widget/Schedules.php
 %%WWWDIR%%/module.info
-%%WWWDIR%%/phpstan-baseline.neon
+%%WWWDIR%%/phpstan-baseline-7x.neon
+%%WWWDIR%%/phpstan-baseline-8x.neon
+%%WWWDIR%%/phpstan-baseline-by-php-version.php
+%%WWWDIR%%/phpstan-baseline-common.neon
 %%WWWDIR%%/phpstan.neon
-%%WWWDIR%%/phpunit.xml
 %%WWWDIR%%/public/css/module.less
+%%WWWDIR%%/public/css/type-switcher.less
 %%WWWDIR%%/run.php
 %%WWWDIR%%/schema/mysql-upgrades/1.0.0.sql
 %%WWWDIR%%/schema/mysql-upgrades/1.1.0.sql

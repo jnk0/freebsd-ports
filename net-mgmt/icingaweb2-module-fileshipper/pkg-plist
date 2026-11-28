@@ -1,6 +1,9 @@
 %%WWWDIR%%/.github/ISSUE_TEMPLATE.md
+%%WWWDIR%%/.github/ISSUE_TEMPLATE/bug_report.md
+%%WWWDIR%%/.github/ISSUE_TEMPLATE/feature_request.md
+%%WWWDIR%%/.github/workflows/php.yml
 %%WWWDIR%%/.gitignore
-%%WWWDIR%%/LICENSE
+%%WWWDIR%%/LICENSE.md
 %%WWWDIR%%/README.md
 %%WWWDIR%%/contrib/git-hooks/post-merge
 %%WWWDIR%%/doc/02-Installation.md
@@ -20,5 +23,11 @@
 %%WWWDIR%%/library/Fileshipper/Xlsx/Workbook.php
 %%WWWDIR%%/library/Fileshipper/Xlsx/Worksheet.php
 %%WWWDIR%%/module.info
-%%WWWDIR%%/phpcs.xml
 %%WWWDIR%%/run.php
+%%WWWDIR%%/test/config/test.csv
+%%WWWDIR%%/test/config/test.json
+%%WWWDIR%%/test/config/test.xlsx
+%%WWWDIR%%/test/config/test.xml
+%%WWWDIR%%/test/config/test.yaml
+%%WWWDIR%%/test/php/library/Fileshipper/ProvidedHook/Director/ImportSourceTest.php
+%%WWWDIR%%/test/php/library/Fileshipper/Xlsx/UtilsTest.php

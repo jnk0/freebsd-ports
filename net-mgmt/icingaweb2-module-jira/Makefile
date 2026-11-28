@@ -1,7 +1,6 @@
 PORTNAME=	icingaweb2-module-jira
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.2.2
-PORTREVISION=	1
+DISTVERSION=	1.5.0
 CATEGORIES=	net-mgmt www
 PKGNAMESUFFIX=	${PHP_PKGNAMESUFFIX}
 
@@ -9,10 +8,11 @@ MAINTAINER=	gettoknowmi@yahoo.com
 COMMENT=	Jira integration into Icinga Web 2
 WWW=		https://github.com/Icinga/icingaweb2-module-jira
 
-LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/LICENSE
+LICENSE=	GPLv3+
+LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
-RUN_DEPENDS=	icingaweb2${PHP_PKGNAMESUFFIX}>=2.11.4:net-mgmt/icingaweb2@${PHP_FLAVOR}
+RUN_DEPENDS=	icingaweb2${PHP_PKGNAMESUFFIX}>=2.12.5:net-mgmt/icingaweb2@${PHP_FLAVOR} \
+		icinga-php-library${PHP_PKGNAMESUFFIX}>=0.19.0:net-mgmt/icinga-php-library@${PHP_FLAVOR}
 
 USES=		cpe php:web,flavors
 IGNORE_WITH_PHP=	86

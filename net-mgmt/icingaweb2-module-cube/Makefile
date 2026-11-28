@@ -1,6 +1,6 @@
 PORTNAME=	icingaweb2-module-cube
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.3.2
+DISTVERSION=	1.4.0
 CATEGORIES=	net-mgmt www
 PKGNAMESUFFIX=	${PHP_PKGNAMESUFFIX}
 
@@ -8,10 +8,11 @@ MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Drill-down view for Icinga web 2 based on custom variables
 WWW=		https://github.com/Icinga/icingaweb2-module-cube
 
-LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/LICENSE
+LICENSE=	GPLv3+
+LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
-RUN_DEPENDS=	icingaweb2${PHP_PKGNAMESUFFIX}>=2.12.1:net-mgmt/icingaweb2@${PHP_FLAVOR}
+RUN_DEPENDS=	icingaweb2${PHP_PKGNAMESUFFIX}>=2.12.5:net-mgmt/icingaweb2@${PHP_FLAVOR} \
+		icinga-php-library${PHP_PKGNAMESUFFIX}>=0.19.0:net-mgmt/icinga-php-library@${PHP_FLAVOR}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	icinga

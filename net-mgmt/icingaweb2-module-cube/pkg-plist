@@ -1,6 +1,6 @@
 %%WWWDIR%%/.mailmap
 %%WWWDIR%%/AUTHORS
-%%WWWDIR%%/LICENSE
+%%WWWDIR%%/LICENSE.md
 %%WWWDIR%%/README.md
 %%WWWDIR%%/application/controllers/HostsController.php
 %%WWWDIR%%/application/controllers/IdoHostsController.php
@@ -14,11 +14,7 @@
 %%WWWDIR%%/doc/01-About.md
 %%WWWDIR%%/doc/02-Installation.md
 %%WWWDIR%%/doc/02-Installation.md.d/From-Source.md
-%%WWWDIR%%/doc/img/cube_action-links.png
-%%WWWDIR%%/doc/img/cube_director.png
-%%WWWDIR%%/doc/img/cube_move-up.png
-%%WWWDIR%%/doc/img/cube_simple.png
-%%WWWDIR%%/doc/img/cube_slice.png
+%%WWWDIR%%/doc/img/cube_overview.png
 %%WWWDIR%%/library/Cube/Cube.php
 %%WWWDIR%%/library/Cube/CubeRenderer.php
 %%WWWDIR%%/library/Cube/CubeRenderer/HostStatusCubeRenderer.php
@@ -46,8 +42,15 @@
 %%WWWDIR%%/library/Cube/Web/ActionLinks.php
 %%WWWDIR%%/library/Cube/Web/Controller.php
 %%WWWDIR%%/library/Cube/Web/IdoController.php
+%%WWWDIR%%/library/Cube/Web/Widget/DimensionWidget.php
+%%WWWDIR%%/library/Cube/Web/Widget/HostDimensionWidget.php
+%%WWWDIR%%/library/Cube/Web/Widget/ServiceDimensionWidget.php
 %%WWWDIR%%/module.info
-%%WWWDIR%%/phpstan-baseline.neon
+%%WWWDIR%%/phpstan-baseline-7x.neon
+%%WWWDIR%%/phpstan-baseline-8x.neon
+%%WWWDIR%%/phpstan-baseline-by-php-version.php
+%%WWWDIR%%/phpstan-baseline-standard.neon
 %%WWWDIR%%/phpstan.neon
 %%WWWDIR%%/public/css/module.less
+%%WWWDIR%%/public/css/state-badges.less
 %%WWWDIR%%/run.php

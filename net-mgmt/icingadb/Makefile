@@ -1,7 +1,6 @@
 PORTNAME=	icingadb
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.4.0
-PORTREVISION=	21
+DISTVERSION=	1.6.0
 CATEGORIES=	net-mgmt
 
 MAINTAINER=	dvl@FreeBSD.org
@@ -11,7 +10,7 @@ WWW=		https://icinga.com/docs/icinga-db/latest/doc/02-Installation/
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules pgsql
+USES=		go:1.27+,modules pgsql
 
 WANT_PGSQL=	contrib
 
@@ -39,7 +38,7 @@ SUB_LIST+=	ICINGA2USER=${ICINGA2USER} \
 		PREFIX=${PREFIX}
 
 post-patch:
-	@${REINPLACE_CMD} -e 's|%%PREFIX|${PREFIX}|g' ${WRKSRC}/internal/config/config.go
+	@${REINPLACE_CMD} -e 's|%%PREFIX%%|${PREFIX}|g' ${WRKSRC}/internal/config/config.go
 
 post-install:
 	${MKDIR} ${STAGEDIR}${EXAMPLESDIR}

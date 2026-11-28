@@ -1,6 +1,6 @@
---- internal/config/config.go.orig	2025-07-14 11:25:55 UTC
+--- internal/config/config.go.orig	2026-10-29 14:13:43 UTC
 +++ internal/config/config.go
-@@ -56,7 +56,7 @@ type Flags struct {
+@@ -75,7 +75,7 @@
  	Version bool `long:"version" description:"print version and exit"`
  
  	// Config is the path to the config file. If not provided, it defaults to DefaultConfigPath.

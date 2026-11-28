@@ -8,4 +8,19 @@ create extension if not exists citext;
 
 EOM
 }
+{ type: upgrade
+  maximum_version: "1.6.0"
+  message: <<EOM
+Icinga DB 1.6.0 needs a database schema upgrade. Stop icingadb, then
+apply the upgrade script for your database before starting it again:
+
+  /usr/local/share/examples/icingadb/schema/mysql/upgrades/1.6.0.sql
+  /usr/local/share/examples/icingadb/schema/pgsql/upgrades/1.6.0.sql
+
+As the history table is altered, this may take a few minutes. Prior
+setups should also set notifications.icingaweb2_url in config.yml if
+they use Icinga Notifications. See the upgrading notes:
+https://icinga.com/docs/icinga-db/latest/doc/04-Upgrading/
+EOM
+}
 ]

@@ -1,5 +1,4 @@
-%%WWWDIR%%/CHANGELOG.md
-%%WWWDIR%%/LICENSE
+%%WWWDIR%%/LICENSE.md
 %%WWWDIR%%/README.md
 %%WWWDIR%%/application/clicommands/Icinga2Command.php
 %%WWWDIR%%/application/controllers/ConfigController.php
@@ -60,7 +59,10 @@
 %%WWWDIR%%/library/Graphite/Web/Widget/IcingadbGraphs.php
 %%WWWDIR%%/library/Graphite/Web/Widget/InlineGraphImage.php
 %%WWWDIR%%/module.info
-%%WWWDIR%%/phpstan-baseline.neon
+%%WWWDIR%%/phpstan-baseline-7x.neon
+%%WWWDIR%%/phpstan-baseline-8x.neon
+%%WWWDIR%%/phpstan-baseline-by-php-version.php
+%%WWWDIR%%/phpstan-baseline-standard.neon
 %%WWWDIR%%/phpstan.neon
 %%WWWDIR%%/public/css/module.less
 %%WWWDIR%%/public/js/module.js
